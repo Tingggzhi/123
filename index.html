@@ -54,7 +54,7 @@
     </div>
 
     <!-- 導覽列 -->
-    <nav id="navbar" class="sticky top-0 z-50 transition-all duration-200 bg-white/70 backdrop-blur-sm border-b border-transparent font-black">
+    <nav id="navbar" class="sticky top-0 z-50 transition-all duration-200 bg-white/70 backdrop-blur-sm border-b border-transparent">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <div class="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#1E3A8A]">
@@ -64,8 +64,15 @@
             </div>
 
             <div class="hidden md:flex gap-8 items-center text-sm font-black">
-                <a href="#salon" class="hover:text-blue-500 transition-colors">輕客製</a>
-                <a href="#custom" class="hover:text-blue-500 transition-colors">手繪買斷</a>
+                <a href="#salon" class="hover:text-blue-500 transition-colors flex items-center gap-1">
+                    <i data-lucide="palette" class="w-4 h-4"></i> 輕客製
+                </a>
+                <a href="#custom" class="hover:text-blue-500 transition-colors flex items-center gap-1">
+                    <i data-lucide="star" class="w-4 h-4"></i> 手繪買斷
+                </a>
+                <a href="https://discord.gg/HeDXrqHxvF" target="_blank" class="flex items-center gap-1 text-slate-500 hover:text-blue-500 transition-colors">
+                    作品集 <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
                 <a href="#notice" class="hover:text-blue-500 transition-colors">委託須知</a>
                 <a href="#contact" class="px-5 py-2 bg-blue-500 text-white rounded blue-shadow blue-shadow-active transition-all font-black">聯絡諮詢</a>
             </div>
@@ -77,9 +84,10 @@
 
         <!-- 手機版選單 -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-blue-100 p-6 space-y-4 shadow-2xl font-black text-sm uppercase tracking-widest">
-            <a href="#salon" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2">楓沙龍製作</a>
-            <a href="#custom" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2">手繪客製區</a>
-            <a href="#notice" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2">委託須知</a>
+            <a href="#salon" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2"><i data-lucide="palette" class="w-4 h-4 inline mr-2"></i>楓沙龍製作</a>
+            <a href="#custom" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2"><i data-lucide="star" class="w-4 h-4 inline mr-2"></i>手繪客製區</a>
+            <a href="https://discord.gg/HeDXrqHxvF" target="_blank" class="block w-full border-b border-slate-50 pb-2 text-blue-400"><i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>作品集瀏覽 (DC)</a>
+            <a href="#notice" onclick="toggleMenu()" class="block w-full border-b border-slate-50 pb-2"><i data-lucide="info" class="w-4 h-4 inline mr-2"></i>委託須知</a>
             <button onclick="copyCurrentUrl(); toggleMenu()" class="block w-full text-left flex items-center gap-2 text-blue-500">
                 <i data-lucide="copy" class="w-4 h-4"></i> 複製網站網址
             </button>
@@ -92,26 +100,37 @@
             <div class="inline-block px-4 py-1.5 bg-white border border-blue-200 text-blue-600 text-xs font-black mb-8 shadow-[3px_3px_0px_0px_#BFDBFE] uppercase tracking-widest">
                 Pixel Art Studio ‧ Zhi Zhi ✨
             </div>
-            <h1 class="text-5xl md:text-7xl text-slate-900 mb-8 font-black uppercase tracking-tighter leading-tight">
+            <h1 class="text-5xl md:text-8xl text-slate-900 mb-8 font-black uppercase tracking-tighter leading-tight">
                 芝芝客製化<br>
                 <span class="text-blue-500 border-b-8 border-blue-100 font-black">專業像素藝術工作室</span>
             </h1>
+
+            <!-- 作品集與預約大按鈕 -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <button onclick="scrollToTarget('contact')" class="px-10 py-4 bg-blue-600 text-white font-black rounded blue-shadow active:translate-y-1 transition-all uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i data-lucide="calendar-check" class="w-5 h-5"></i> 立即預約委託
+                </button>
+                <a href="https://discord.gg/HeDXrqHxvF" target="_blank" class="px-10 py-4 bg-white border-2 border-blue-500 text-blue-600 font-black rounded shadow-[4px_4px_0px_0px_#DBEAFE] active:translate-y-1 transition-all flex items-center justify-center gap-2 uppercase tracking-widest">
+                    作品集瀏覽 (DC) <i data-lucide="external-link" class="w-5 h-5"></i>
+                </a>
+            </div>
             
+            <!-- 十大服務快速跳轉 -->
             <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 max-w-5xl mx-auto mt-16 font-black text-center">
                 <button onclick="scrollToTarget('salon')" class="p-5 bg-white border-2 border-slate-100 shadow-[4px_4px_0px_0px_#F1F5F9] hover:border-blue-500 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col items-center gap-3">
-                    <i data-lucide="palette" class="text-blue-500 font-black"></i><span class="text-[11px] font-black">楓沙龍製作</span>
+                    <i data-lucide="palette" class="text-blue-500"></i><span class="text-[11px] font-black uppercase">楓沙龍製作</span>
                 </button>
                 <button onclick="scrollToTarget('custom')" class="p-5 bg-white border-2 border-slate-100 shadow-[4px_4px_0px_0px_#F1F5F9] hover:border-blue-500 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col items-center gap-3">
-                    <i data-lucide="brush" class="text-blue-500 font-black"></i><span class="text-[11px] font-black">手繪角色</span>
+                    <i data-lucide="brush" class="text-blue-500"></i><span class="text-[11px] font-black uppercase">手繪角色</span>
                 </button>
                 <button onclick="scrollToTarget('part-separation')" class="p-5 bg-white border-2 border-slate-100 shadow-[4px_4px_0px_0px_#F1F5F9] hover:border-blue-500 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col items-center gap-3">
-                    <i data-lucide="scissors" class="text-blue-500 font-black"></i><span class="text-[11px] font-black">拆部位製作</span>
+                    <i data-lucide="scissors" class="text-blue-500"></i><span class="text-[11px] font-black uppercase">拆部位製作</span>
                 </button>
                 <button onclick="scrollToTarget('items')" class="p-5 bg-white border-2 border-slate-100 shadow-[4px_4px_0px_0px_#F1F5F9] hover:border-blue-500 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col items-center gap-3">
-                    <i data-lucide="layout" class="text-blue-500 font-black"></i><span class="text-[11px] font-black">名牌製作</span>
+                    <i data-lucide="layout" class="text-blue-500"></i><span class="text-[11px] font-black uppercase tracking-tighter">名牌製作</span>
                 </button>
                 <button onclick="scrollToTarget('chair-vfx')" class="p-5 bg-white border-2 border-slate-100 shadow-[4px_4px_0px_0px_#F1F5F9] hover:border-blue-500 hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col items-center gap-3">
-                    <i data-lucide="gamepad-2" class="text-blue-500 font-black"></i><span class="text-[11px] font-black">椅子與特效</span>
+                    <i data-lucide="gamepad-2" class="text-blue-500"></i><span class="text-[11px] font-black uppercase tracking-tighter">椅子與特效</span>
                 </button>
             </div>
         </div>
@@ -119,123 +138,126 @@
 
     <main class="max-w-5xl mx-auto px-6 space-y-28 pb-32">
         
-        <!-- 一、楓沙龍輕客製區 (salon) -->
-        <section id="salon" class="scroll-mt-24 font-black">
-            <div class="bg-white border-2 border-blue-100 p-8 md:p-12 main-shadow">
+        <!-- 一、楓沙龍輕客製區 -->
+        <section id="salon" class="scroll-mt-24">
+            <div class="bg-white border-2 border-blue-100 p-8 md:p-12 main-shadow font-black">
                 <div class="flex items-center gap-2 text-blue-500 text-xs mb-4 font-black uppercase tracking-[0.2em]">
                     <i data-lucide="palette" class="w-4 h-4"></i> Maple Salon Light Custom
                 </div>
-                <h2 class="text-3xl mb-10 text-slate-900 border-l-8 border-blue-500 pl-4 font-black uppercase tracking-tight font-black">楓沙龍內建組成 【輕客製】</h2>
+                <h2 class="text-3xl mb-10 text-slate-900 border-l-8 border-blue-500 pl-4 font-black uppercase tracking-tight">楓沙龍內建組成 【輕客製】</h2>
                 
                 <div class="grid md:grid-cols-3 gap-6 mb-10 text-sm font-black">
                     <div class="p-8 border-2 bg-white border-slate-100 shadow-sm flex flex-col justify-between">
                         <div>
-                            <h3 class="font-black text-slate-800 mb-2 font-black">1️⃣ 壓縮檔自配</h3>
+                            <h3 class="font-black text-slate-800 mb-2">1️⃣ 壓縮檔自配</h3>
                             <p class="text-[10px] text-slate-400 font-black mb-4 tracking-wider uppercase">▸ 僅確認素材正確性，不含調整</p>
                         </div>
-                        <div class="text-3xl text-blue-500 font-black italic tracking-tighter font-black">NT$ 100</div>
+                        <div class="text-3xl text-blue-500 font-black italic tracking-tighter">NT$ 100</div>
                     </div>
                     <div class="p-8 border-2 bg-white border-slate-100 shadow-sm flex flex-col justify-between">
                         <div>
-                            <h3 class="font-black text-slate-800 mb-2 font-black">2️⃣ 自行配好，需協助調色</h3>
+                            <h3 class="font-black text-slate-800 mb-2">2️⃣ 自行配好 協助調色</h3>
                             <p class="text-[10px] text-slate-400 font-black mb-4 tracking-wider uppercase">▸ 微調色相、亮度與整體一致性</p>
                         </div>
-                        <div class="text-3xl text-blue-500 font-black italic tracking-tighter font-black">NT$ 400</div>
+                        <div class="text-3xl text-blue-500 font-black italic tracking-tighter">NT$ 400</div>
                     </div>
-                    <div class="p-8 border-2 bg-blue-50 border-blue-500 main-shadow flex flex-col justify-between font-black">
+                    <div class="p-8 border-2 bg-blue-50 border-blue-500 main-shadow flex flex-col justify-between">
                         <div>
-                            <h3 class="font-black text-slate-800 mb-2 font-black">3️⃣ 風格配置</h3>
-                            <p class="text-[10px] text-blue-400 font-black mb-4 tracking-wider uppercase font-black">▸ 提出想製作的風格 我幫忙調色搭配</p>
+                            <h3 class="font-black text-slate-800 mb-2">3️⃣ 風格配置</h3>
+                            <p class="text-[10px] text-blue-400 font-black mb-4 tracking-wider uppercase">▸ 提出想製作的風格 我幫忙調色搭配</p>
                         </div>
-                        <div class="text-3xl text-blue-600 font-black italic tracking-tighter font-black">NT$ 600</div>
+                        <div class="text-3xl text-blue-600 font-black italic tracking-tighter">NT$ 600</div>
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-between items-center p-6 bg-slate-50 border border-slate-200 rounded gap-4 font-black">
                     <div class="flex items-center gap-3 text-blue-600 uppercase tracking-widest font-black">
-                        <i data-lucide="brush" class="w-5 h-5 font-black"></i> 局部手繪還原
+                        <i data-lucide="brush" class="w-5 h-5"></i> 局部手繪還原
                     </div>
                     <div class="text-slate-400 text-sm border-2 border-dashed border-slate-200 px-4 py-1 uppercase font-black">另加價格 ‧ 依情況定價</div>
                 </div>
             </div>
         </section>
 
-        <!-- 二、手繪客製買斷區 (custom) -->
+        <!-- 二、手繪客製買斷區 -->
         <section id="custom" class="scroll-mt-24 font-black">
             <div class="text-center mb-16">
                 <div class="flex justify-center items-center gap-2 text-blue-500 text-xs mb-2 font-black uppercase tracking-widest">
                     <i data-lucide="star" class="w-4 h-4"></i> Premium Buyout Customization
                 </div>
-                <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter font-black font-black">含手繪客製｜買斷價表</h2>
+                <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter">含手繪客製｜買斷價表</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 font-black uppercase font-black">
+            <div class="grid md:grid-cols-2 gap-8 font-black uppercase">
                 <!-- 等級 1 -->
-                <div class="p-10 bg-white border-2 border-slate-100 card-shadow font-black">
-                    <div class="text-blue-500 text-[10px] mb-2 font-black tracking-widest font-black">🔹 等級 1</div>
-                    <div class="text-3xl font-black text-slate-900 mb-6 tracking-tighter font-black font-black">NT$ 1,000 – 4,000</div>
+                <div class="p-10 bg-white border-2 border-slate-100 card-shadow">
+                    <div class="text-blue-500 text-[10px] mb-2 font-black tracking-widest">🔹 等級 1</div>
+                    <div class="text-3xl font-black text-slate-900 mb-2 tracking-tighter font-black">NT$ 1,000 – 4,000</div>
+                    <p class="text-[9px] text-red-500 font-black mb-6 tracking-tight">只供參考!!!!!!每個造型複雜度不同 實際依照討論為主</p>
                     <div class="bg-blue-50 p-3 rounded mb-6 text-xs text-blue-600 font-black">約 25% 手繪還原</div>
                     <ul class="space-y-4 text-sm text-slate-600 font-black border-t border-slate-50 pt-6 min-h-[160px]">
-                        <li class="flex items-start gap-2">‧ 局部手繪補強</li>
-                        <li class="flex items-start gap-2">‧ 保留楓之谷原有結構</li>
-                        <li class="flex items-start gap-2 text-blue-500">‧ 僅針對局部手繪</li>
+                        <li class="flex items-start gap-2">‧ <i data-lucide="check" class="w-4 h-4 text-blue-400"></i> 局部手繪補強</li>
+                        <li class="flex items-start gap-2">‧ <i data-lucide="check" class="w-4 h-4 text-blue-400"></i> 保留楓之谷原有結構</li>
+                        <li class="flex items-start gap-2 text-blue-500 font-black">‧ <i data-lucide="check" class="w-4 h-4"></i> 僅針對局部手繪</li>
                     </ul>
-                    <p class="mt-4 text-[10px] text-slate-400 font-black font-black">說明：工時較短，修改成本低。</p>
                 </div>
 
                 <!-- 等級 2 -->
-                <div class="p-10 bg-white border-2 border-slate-100 card-shadow font-black">
-                    <div class="text-blue-500 text-[10px] mb-2 font-black tracking-widest font-black">🔹 等級 2</div>
-                    <div class="text-3xl font-black text-slate-900 mb-6 tracking-tighter font-black font-black font-black">NT$ 5,000 – 9,000</div>
-                    <div class="bg-blue-50 p-3 rounded mb-6 text-xs text-blue-600 font-black uppercase tracking-tight leading-relaxed font-black">方案二選一</div>
+                <div class="p-10 bg-white border-2 border-slate-100 card-shadow">
+                    <div class="text-blue-500 text-[10px] mb-2 font-black tracking-widest">🔹 等級 2</div>
+                    <div class="text-3xl font-black text-slate-900 mb-2 tracking-tighter font-black">NT$ 5,000 – 9,000</div>
+                    <p class="text-[9px] text-red-500 font-black mb-6 tracking-tight">只供參考!!!!!!每個造型複雜度不同 實際依照討論為主</p>
+                    <div class="bg-blue-50 p-3 rounded mb-6 text-xs text-blue-600 font-black uppercase tracking-tight leading-relaxed">方案二選一</div>
                     <ul class="space-y-4 text-sm text-slate-600 font-black border-t border-slate-50 pt-6 min-h-[160px]">
-                        <li class="flex items-start gap-2 leading-snug font-black">‧ A：50% 手繪還原含完整動作呈現</li>
-                        <li class="flex items-start gap-2 leading-snug font-black">‧ B：全手繪還原 攻擊動作 1~2 種</li>
-                        <li class="flex items-start gap-2 text-slate-500 text-xs leading-snug tracking-tight font-black uppercase font-black bg-blue-50 p-2 border-l-4 border-blue-500">
-                            不會破圖，只是覆蓋成同一個動作，把繪製時間著重放在還原角色上
+                        <li class="flex items-start gap-2 leading-snug">‧ A：50% 手繪還原含完整動作呈現</li>
+                        <li class="flex items-start gap-2 leading-snug">‧ B：全手繪還原 攻擊動作 1~2 種</li>
+                        <li class="flex items-start gap-2 text-slate-500 text-xs leading-snug tracking-tight font-black uppercase bg-blue-50 p-3 border-l-4 border-blue-500">
+                            <i data-lucide="alert-circle" class="w-4 h-4 inline mr-1"></i>不會破圖，只是覆蓋成同一個動作，把繪製時間著重放在還原角色上
                         </li>
                     </ul>
                 </div>
 
                 <!-- 等級 3 -->
-                <div class="p-10 bg-white border-2 border-blue-100 main-shadow font-black font-black">
-                    <div class="text-blue-600 text-[10px] mb-2 font-black tracking-widest font-black">🔹 等級 3</div>
-                    <div class="text-3xl font-black text-slate-900 mb-6 tracking-tighter font-black">NT$ 10,000 – 15,000</div>
-                    <div class="bg-blue-600 text-white p-3 rounded mb-6 text-xs font-black shadow-lg font-black font-black">全手繪還原 ‧ 非楓之谷動作</div>
+                <div class="p-10 bg-white border-2 border-blue-100 main-shadow">
+                    <div class="text-blue-600 text-[10px] mb-2 font-black tracking-widest">🔹 等級 3</div>
+                    <div class="text-3xl font-black text-slate-900 mb-2 tracking-tighter">NT$ 10,000 – 15,000</div>
+                    <p class="text-[9px] text-red-500 font-black mb-6 tracking-tight">只供參考!!!!!!每個造型複雜度不同 實際依照討論為主</p>
+                    <div class="bg-blue-600 text-white p-3 rounded mb-6 text-xs font-black shadow-lg">全手繪還原 ‧ 非楓之谷動作</div>
                     <ul class="space-y-4 text-sm text-slate-700 font-black border-t border-blue-50 pt-6 min-h-[160px]">
-                        <li class="flex items-start gap-2 font-black">‧ 可非楓之谷原動作 (限少量)</li>
-                        <li class="flex items-start gap-2 font-black">‧ 簡易特效</li>
-                        <li class="flex items-start gap-2 font-black font-black">‧ 衣服頭髮飄動、眨眼細微動態</li>
-                        <li class="flex items-start gap-2 font-black font-black">‧ 攻擊動作 1～3 種</li>
-                        <li class="flex items-start gap-2 text-blue-600 font-black font-black">‧ 含 死亡頭 製作</li>
+                        <li class="flex items-start gap-2">‧ <i data-lucide="zap" class="w-4 h-4 text-yellow-500"></i> 可非楓之谷原動作 (限少量)</li>
+                        <li class="flex items-start gap-2">‧ <i data-lucide="sparkles" class="w-4 h-4 text-blue-400"></i> 簡易特效</li>
+                        <li class="flex items-start gap-2">‧ 衣服頭髮飄動、眨眼細微動態</li>
+                        <li class="flex items-start gap-2">‧ 攻擊動作 1～3 種</li>
+                        <li class="flex items-start gap-2 text-blue-600 font-black">‧ 含 死亡頭 製作</li>
                     </ul>
                 </div>
 
                 <!-- 等級 4 -->
-                <div class="p-10 bg-slate-900 text-white shadow-[10px_10px_0px_0px_#E2E8F0] font-black font-black">
-                    <div class="text-blue-400 text-[10px] mb-2 font-black tracking-widest uppercase font-black font-black font-black">🔹 等級 4 高端客製</div>
-                    <div class="text-3xl font-black text-white mb-6 tracking-tighter uppercase italic font-black font-black font-black">NT$ 15,000 – 20,000</div>
-                    <div class="bg-white/10 p-3 rounded mb-6 text-xs font-bold border border-white/10 uppercase tracking-widest text-blue-200 font-black font-black font-black font-black">精細度最高 ‧ 特效還原</div>
-                    <ul class="space-y-4 text-sm text-slate-300 font-bold border-t border-white/5 pt-6 min-h-[160px] uppercase font-black leading-relaxed font-black font-black font-black font-black">
-                        <li class="flex items-start gap-2">‧ 非楓之谷動作</li>
-                        <li class="flex items-start gap-2">‧ 非楓之谷體型 (肌肉型、大胸等)</li>
+                <div class="p-10 bg-slate-900 text-white shadow-[10px_10px_0px_0px_#E2E8F0]">
+                    <div class="text-blue-400 text-[10px] mb-2 font-black tracking-widest uppercase">🔹 等級 4 高端客製</div>
+                    <div class="text-3xl font-black text-white mb-2 tracking-tighter uppercase italic">NT$ 15,000 – 20,000</div>
+                    <p class="text-[9px] text-red-400 font-black mb-6 tracking-tight font-black">只供參考!!!!!!每個造型複雜度不同 實際依照討論為主</p>
+                    <div class="bg-white/10 p-3 rounded mb-6 text-xs font-bold border border-white/10 uppercase tracking-widest text-blue-200 font-black">精細度最高 ‧ 特效還原</div>
+                    <ul class="space-y-3 text-sm text-slate-300 font-bold border-t border-white/5 pt-6 min-h-[160px] uppercase font-black leading-relaxed">
+                        <li class="flex items-start gap-2">‧ <i data-lucide="move" class="w-4 h-4"></i> 非楓之谷動作</li>
+                        <li class="flex items-start gap-2">‧ <i data-lucide="user" class="w-4 h-4"></i> 非楓之谷體型 (肌肉型、大胸等)</li>
                         <li class="flex items-start gap-2">‧ 生動細節強化</li>
-                        <li class="flex items-start gap-2 font-black">‧ 特效還原</li>
+                        <li class="flex items-start gap-2">‧ 特效還原</li>
                         <li class="flex items-start gap-2">‧ 攻擊動作 4 種</li>
-                        <li class="flex items-start gap-2 text-blue-400 font-black underline underline-offset-4 font-black font-black font-black font-black">‧ 含 死亡頭 製作</li>
+                        <li class="flex items-start gap-2 text-blue-400 font-black underline underline-offset-4 font-black">‧ 含 死亡頭 製作</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 三、拆部位、配件 (part-separation, items, chair-vfx, death-head) -->
+        <!-- 三、拆部位、配件 -->
         <section class="grid lg:grid-cols-2 gap-8 font-black uppercase">
             <!-- 拆部位製作 -->
-            <div id="part-separation" class="scroll-mt-24 bg-white border-2 border-slate-100 p-10 card-shadow font-black font-black">
+            <div id="part-separation" class="scroll-mt-24 bg-white border-2 border-slate-100 p-10 card-shadow">
                 <h2 class="text-2xl mb-6 flex items-center gap-2 font-black uppercase tracking-tight">
                     <i data-lucide="scissors" class="text-blue-500"></i> 拆部位製作
                 </h2>
-                <div class="grid grid-cols-2 gap-y-2 mb-8 text-xs font-black font-black">
+                <div class="grid grid-cols-2 gap-y-2 mb-8 text-xs font-black">
                     <div class="flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-blue-500"></i> 髮型</div>
                     <div class="flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-blue-500"></i> 上衣</div>
                     <div class="flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-blue-500"></i> 帽子</div>
@@ -243,88 +265,88 @@
                     <div class="flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-blue-500"></i> 表情</div>
                     <div class="flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-blue-500"></i> 武器其他</div>
                 </div>
-                <p class="text-slate-400 text-[10px] leading-relaxed uppercase tracking-widest font-black border-t pt-4 font-black">
+                <p class="text-slate-400 text-[10px] leading-relaxed uppercase tracking-widest font-black border-t pt-4">
                     請務必於委託前提出並提供目前使用的部位清單，我將協助判斷結構是否可製作理想樣貌。
                 </p>
-                <div class="mt-6 bg-slate-50 border-2 border-dashed border-slate-200 p-4 text-center font-black">
-                    <span class="text-3xl font-black italic text-slate-800 uppercase font-black font-black font-black">來圖另談價 🥛</span>
+                <div class="mt-6 bg-slate-50 border-2 border-dashed border-slate-200 p-4 text-center">
+                    <span class="text-3xl font-black italic text-slate-800 uppercase tracking-tighter">來圖另談價 🥛</span>
                 </div>
             </div>
 
             <!-- 名牌與配件 -->
-            <div class="space-y-6">
+            <div class="space-y-6 font-black">
                 <!-- 名牌製作 -->
-                <div id="items" class="scroll-mt-24 bg-white p-8 border-2 border-slate-100 shadow-sm font-black font-black">
+                <div id="items" class="scroll-mt-24 bg-white p-8 border-2 border-slate-100 shadow-sm">
                     <div class="flex justify-between items-start mb-4">
                         <div>
-                            <div class="text-pink-500 text-[10px] mb-1 font-black uppercase tracking-widest font-black font-black font-black font-black">Interface</div>
-                            <h3 class="font-black text-xl uppercase italic font-black font-black">名牌製作</h3>
+                            <div class="text-pink-500 text-[10px] mb-1 font-black uppercase tracking-widest">Interface</div>
+                            <h3 class="font-black text-xl uppercase italic"><i data-lucide="layout" class="w-4 h-4 inline mr-1"></i>名牌製作</h3>
                         </div>
-                        <div class="text-xs text-slate-400 font-black mt-1">※ 不含動態為預設</div>
+                        <div class="text-xs text-slate-400 font-black mt-1 font-black">※ 不含動態為預設</div>
                     </div>
-                    <ul class="text-sm space-y-2 mb-6 border-b border-slate-50 pb-4">
-                        <li class="flex justify-between"><span>‧ 簡易</span> <span class="text-slate-800 font-black">NT$ 600</span></li>
-                        <li class="flex justify-between"><span>‧ 普通</span> <span class="text-slate-800 font-black">NT$ 800</span></li>
-                        <li class="flex justify-between"><span>‧ 複雜</span> <span class="text-slate-800 font-black">NT$ 1,200</span></li>
+                    <ul class="text-sm space-y-2 mb-6 border-b border-slate-50 pb-4 font-black">
+                        <li class="flex justify-between font-black"><span>‧ 簡易</span> <span class="text-slate-800 font-black">NT$ 600</span></li>
+                        <li class="flex justify-between font-black"><span>‧ 普通</span> <span class="text-slate-800 font-black">NT$ 800</span></li>
+                        <li class="flex justify-between font-black"><span>‧ 複雜</span> <span class="text-slate-800 font-black">NT$ 1,200</span></li>
                     </ul>
-                    <div class="space-y-1">
-                        <p class="text-[10px] text-orange-500 font-black font-black">🔸 若需動態效果：原價 × 2</p>
-                        <p class="text-[10px] text-blue-500 font-black font-black">🔸 僅調整不同配色：+ NT$ 300 起 (依複雜度調整)</p>
+                    <div class="space-y-1 font-black">
+                        <p class="text-[10px] text-orange-500 font-black"><i data-lucide="zap" class="w-3 h-3 inline"></i> 🔸 若需動態效果：原價 × 2</p>
+                        <p class="text-[10px] text-blue-500 font-black"><i data-lucide="palette" class="w-3 h-3 inline"></i> 🔸 僅調整不同配色：+ NT$ 300 起 (依複雜度調整)</p>
                     </div>
                 </div>
 
                 <!-- 椅子與特效 -->
-                <div id="chair-vfx" class="scroll-mt-24 grid grid-cols-2 gap-4 font-black font-black">
+                <div id="chair-vfx" class="scroll-mt-24 grid grid-cols-2 gap-4 font-black">
                     <div class="bg-blue-600 p-8 text-white shadow-[6px_6px_0px_0px_#DBEAFE]">
-                        <div class="text-[10px] font-black opacity-70 mb-1 uppercase tracking-widest font-black font-black">Asset</div>
-                        <div class="text-xl font-black mb-1 italic uppercase font-black">椅子製作</div>
-                        <div class="font-black text-2xl tracking-tighter font-black font-black">300 – 800</div>
+                        <div class="text-[10px] font-black opacity-70 mb-1 uppercase tracking-widest">Asset</div>
+                        <div class="text-xl font-black mb-1 italic uppercase"><i data-lucide="gamepad-2" class="w-4 h-4 inline mr-1"></i>椅子製作</div>
+                        <div class="font-black text-2xl tracking-tighter">300 – 800</div>
                         <p class="text-[9px] opacity-60 mt-1 font-black">依複雜度定價</p>
                     </div>
                     <div class="bg-orange-500 p-8 text-white shadow-[6px_6px_0px_0px_#FFEDD5]">
-                        <div class="text-[10px] font-black opacity-70 mb-1 uppercase tracking-widest font-black font-black font-black">VFX</div>
-                        <div class="text-xl font-black mb-1 italic font-black font-black font-black">特效製作</div>
-                        <div class="font-black text-2xl tracking-tighter font-black font-black font-black">500 – 1500</div>
+                        <div class="text-[10px] font-black opacity-70 mb-1 uppercase tracking-widest">VFX</div>
+                        <div class="text-xl font-black mb-1 italic font-black font-black"><i data-lucide="sparkles" class="w-4 h-4 inline mr-1"></i>特效製作</div>
+                        <div class="font-black text-2xl tracking-tighter font-black">500 – 1500</div>
                         <p class="text-[9px] opacity-60 mt-1 font-black">依複雜度定價</p>
                     </div>
                 </div>
 
                 <!-- 死亡頭 -->
-                <div id="death-head" class="scroll-mt-24 bg-white p-6 border-2 border-red-50 shadow-sm flex justify-between items-center font-black font-black">
+                <div id="death-head" class="scroll-mt-24 bg-white p-6 border-2 border-red-50 shadow-sm flex justify-between items-center">
                     <div class="flex flex-col">
-                        <div class="flex items-center gap-2 font-black text-red-500 uppercase tracking-tight italic uppercase font-black">
-                            <i data-lucide="skull" class="w-5 h-5 font-black font-black font-black"></i> 死亡頭製作
+                        <div class="flex items-center gap-2 font-black text-red-500 uppercase tracking-tight italic uppercase">
+                            <i data-lucide="skull" class="w-5 h-5 font-black"></i> 死亡頭製作
                         </div>
-                        <p class="text-[9px] text-slate-400 font-black mt-1 ml-7 font-black">依複雜度定價</p>
+                        <p class="text-[9px] text-slate-400 font-black mt-1 ml-7">依複雜度定價</p>
                     </div>
                     <div class="font-black text-2xl text-slate-800 tracking-tighter italic font-black">300 – 500</div>
                 </div>
             </div>
         </section>
 
-        <!-- 四、客製須知與付款規則 (notice) -->
+        <!-- 四、委託客製須知與付款規則 -->
         <section id="notice" class="scroll-mt-24 font-black">
             <div class="bg-white border-4 border-slate-900 p-8 md:p-16 main-shadow relative overflow-hidden font-black uppercase">
                 <div class="flex items-center gap-3 text-slate-900 text-xs mb-6 uppercase tracking-widest font-black">
-                    <i data-lucide="info" class="w-5 h-5 font-black font-black"></i> IMPORTANT NOTICE
+                    <i data-lucide="info" class="w-5 h-5"></i> IMPORTANT NOTICE
                 </div>
                 
-                <div class="grid lg:grid-cols-2 gap-16 font-black font-black font-black">
+                <div class="grid lg:grid-cols-2 gap-16 font-black">
                     <!-- 左側：客製須知 -->
                     <div>
-                        <h2 class="text-3xl font-black mb-10 border-b-4 border-slate-900 pb-4 inline-block font-black font-black font-black">委託客製須知</h2>
+                        <h2 class="text-3xl font-black mb-10 border-b-4 border-slate-900 pb-4 inline-block font-black">委託客製須知</h2>
                         <ul class="space-y-6 text-sm leading-relaxed font-black">
-                            <li class="flex gap-4 font-black font-black">
+                            <li class="flex gap-4 font-black">
                                 <span class="text-blue-500 font-black">●</span>
-                                <span class="font-black font-black">每個角色皆為 <span class="text-blue-600 underline underline-offset-4 font-black font-black">獨立報價</span>。</span>
+                                <span class="font-black">每個角色皆為 <span class="text-blue-600 underline underline-offset-4 font-black">獨立報價</span>。</span>
                             </li>
-                            <li class="flex gap-4 font-black font-black">
+                            <li class="flex gap-4 font-black">
                                 <span class="text-blue-500 font-black">●</span>
-                                <span class="font-black font-black font-black font-black">價格反映 <span class="bg-slate-100 px-2 font-black font-black">工時 × 技術</span>。</span>
+                                <span class="font-black font-black">價格反映 <span class="bg-slate-100 px-2 font-black">工時 × 技術</span>。</span>
                             </li>
-                            <li class="flex gap-4 items-center font-black font-black font-black">
+                            <li class="flex gap-4 items-center font-black font-black">
                                 <span class="text-2xl font-black">👉</span>
-                                <span class="text-lg text-blue-600 font-black font-black font-black font-black">一分錢，一分貨。</span>
+                                <span class="text-lg text-blue-600 font-black font-black">一分錢，一分貨。</span>
                             </li>
                             <li class="flex gap-4 font-black font-black">
                                 <span class="text-blue-500 font-black">●</span>
@@ -336,21 +358,21 @@
                             </li>
                             <li class="flex gap-4 font-black font-black">
                                 <span class="text-blue-500 font-black">●</span>
-                                <div class="font-black font-black font-black font-black">
+                                <div class="font-black font-black">
                                     領取造型需準備 <span class="bg-yellow-100 text-slate-900 px-1 font-black font-black">50-200wc</span>
                                     <p class="text-[10px] text-slate-400 mt-1 font-black font-black font-black">領取前會帶領操作以及告知需準備金額</p>
                                 </div>
                             </li>
                             <li class="flex gap-4 font-black font-black">
-                                <span class="text-blue-500 font-black font-black">●</span>
-                                <div class="font-black font-black font-black font-black">
-                                    客製盡量 <span class="bg-blue-600 text-white px-2 py-0.5 rounded shadow-sm">提供照片</span> 討論 才能確保彼此溝通方向一致 ❤️
+                                <span class="text-blue-500 font-black">●</span>
+                                <div class="font-black font-black">
+                                    客製盡量 <span class="bg-blue-600 text-white px-3 py-1 rounded shadow-md font-black">提供照片</span> 討論 才能確保彼此溝通方向一致 ❤️
                                 </div>
                             </li>
                             <li class="flex gap-4 font-black font-black">
                                 <span class="text-blue-500 font-black font-black font-black">●</span>
                                 <div class="font-black font-black">
-                                    若需 <span class="text-red-500 font-black font-black font-black font-black">拆碎圖分部位製作 (防盜措施)</span>，可提出。
+                                    若需 <span class="text-red-500 font-black font-black font-black">拆碎圖分部位製作 (防盜措施)</span>，可提出。
                                     <p class="text-[10px] text-slate-400 mt-1 font-bold leading-relaxed lowercase font-black font-black font-black">
                                         防盜分成兩個部位 需穿著兩個部位才能完整顯示，本造型除外的部位穿著可能會破圖，需取捨是否製作防盜
                                     </p>
@@ -360,31 +382,31 @@
                     </div>
 
                     <!-- 右側：付款與製作規則 -->
-                    <div class="bg-slate-50 p-8 border-2 border-slate-200 font-black font-black font-black">
-                        <h2 class="text-2xl font-black mb-10 flex items-center gap-3 font-black font-black font-black">
-                            <i data-lucide="credit-card" class="text-blue-600 font-black font-black font-black font-black"></i> 付款與製作規則
+                    <div class="bg-slate-50 p-8 border-2 border-slate-200 font-black font-black">
+                        <h2 class="text-2xl font-black mb-10 flex items-center gap-3 font-black font-black">
+                            <i data-lucide="credit-card" class="text-blue-600 font-black font-black"></i> 付款與製作規則
                         </h2>
                         <div class="space-y-6 text-sm font-black font-black">
-                            <div class="flex gap-4 bg-white p-4 border-2 border-slate-100 font-black font-black">
-                                <span class="text-blue-500 font-black font-black font-black font-black">★</span>
-                                <span class="font-black font-black">確定製作後，需先支付 <span class="text-blue-600 text-lg font-black font-black font-black font-black">總金額 50% 訂金</span>。</span>
+                            <div class="flex gap-4 bg-white p-4 border-2 border-slate-100 font-black font-black font-black">
+                                <span class="text-blue-500 font-black font-black font-black">★</span>
+                                <span class="font-black font-black font-black">確定製作後，需先支付 <span class="text-blue-600 text-lg font-black font-black font-black font-black font-black">總金額 50% 訂金</span>。</span>
                             </div>
-                            <div class="flex gap-4 bg-white p-4 border-2 border-slate-100 font-black font-black">
-                                <span class="text-blue-500 font-black font-black font-black font-black">★</span>
-                                <span class="font-black font-black font-black font-black">收到訂金後才會列入正式製作名單。</span>
+                            <div class="flex gap-4 bg-white p-4 border-2 border-slate-100 font-black font-black font-black">
+                                <span class="text-blue-500 font-black font-black font-black">★</span>
+                                <span class="font-black font-black font-black font-black font-black font-black">收到訂金後才會列入正式製作名單。</span>
                             </div>
                             
-                            <div class="mt-10 font-black font-black">
-                                <h3 class="text-xs text-slate-400 mb-4 uppercase tracking-widest font-black font-black font-black font-black font-black">Accepted Payment Methods</h3>
-                                <div class="grid grid-cols-2 gap-2 text-center font-black font-black font-black font-black">
-                                    <div class="flex flex-col bg-white border-2 border-slate-200 py-3 shadow-sm font-black italic uppercase font-black font-black font-black font-black">
-                                        <span>LINE PAY</span>
-                                        <span class="text-[9px] opacity-60 font-black font-black font-black">加好友轉帳</span>
+                            <div class="mt-10 font-black font-black font-black">
+                                <h3 class="text-xs text-slate-400 mb-4 uppercase tracking-widest font-black font-black font-black">Accepted Payment Methods</h3>
+                                <div class="grid grid-cols-2 gap-2 text-center font-black font-black font-black">
+                                    <div class="flex flex-col bg-white border-2 border-slate-200 py-3 shadow-sm font-black italic uppercase font-black font-black">
+                                        <span class="font-black"><i data-lucide="smartphone" class="w-3 h-3 inline mr-1"></i>LINE PAY</span>
+                                        <span class="text-[9px] opacity-60 font-black font-black">加好友轉帳</span>
                                     </div>
-                                    <div class="bg-white border-2 border-slate-200 py-3 shadow-sm font-black italic uppercase text-[12px] font-black font-black font-black font-black flex items-center justify-center font-black">轉帳 (中信)</div>
-                                    <div class="col-span-2 bg-blue-50 border-2 border-blue-200 py-3 text-blue-600 flex justify-between px-6 items-center font-black font-black font-black font-black font-black">
-                                        <span class="font-black italic text-xl uppercase tracking-tighter font-black font-black font-black font-black font-black">PayPal</span>
-                                        <span class="text-[10px] font-black uppercase font-black font-black font-black font-black font-black">+ 6.5% 手續費</span>
+                                    <div class="bg-white border-2 border-slate-200 py-3 shadow-sm font-black italic uppercase text-[12px] font-black font-black flex items-center justify-center font-black">轉帳 (中信)</div>
+                                    <div class="col-span-2 bg-blue-50 border-2 border-blue-200 py-3 text-blue-600 flex justify-between px-6 items-center font-black font-black font-black font-black">
+                                        <span class="font-black italic text-xl uppercase tracking-tighter font-black font-black font-black"><i data-lucide="globe" class="w-4 h-4 inline mr-1"></i>PayPal</span>
+                                        <span class="text-[10px] font-black uppercase font-black font-black font-black">+ 6.5% 手續費</span>
                                     </div>
                                 </div>
                             </div>
@@ -395,45 +417,45 @@
         </section>
 
         <!-- 五、聯絡方式 (contact) -->
-        <section id="contact" class="scroll-mt-24 pt-12 text-center pb-20 font-black font-black font-black font-black">
-            <h2 class="text-4xl mb-16 uppercase tracking-tighter font-black font-black font-black font-black font-black font-black">聯繫芝芝客製化 🥛✨</h2>
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto px-4 font-black font-black font-black font-black">
-                <a href="https://discord.gg/HeDXrqHxvF" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black font-black">
-                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-indigo-500 transition-colors mb-6 shadow-sm font-black font-black font-black font-black font-black font-black font-black">
-                        <i data-lucide="disc" class="w-10 h-10 font-black font-black font-black font-black font-black font-black font-black font-black"></i>
+        <section id="contact" class="scroll-mt-24 pt-12 text-center pb-20 font-black font-black font-black">
+            <h2 class="text-4xl mb-16 uppercase tracking-tighter font-black font-black font-black font-black font-black">聯繫芝芝客製化 🥛✨</h2>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto px-4 font-black font-black font-black">
+                <a href="https://discord.gg/HeDXrqHxvF" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black">
+                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-indigo-500 transition-colors mb-6 shadow-sm font-black font-black font-black">
+                        <i data-lucide="disc" class="w-10 h-10 font-black font-black"></i>
                     </div>
-                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black font-black font-black">Discord</div>
-                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-indigo-50 decoration-4 font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">zhii_i</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black">Discord</div>
+                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-indigo-50 decoration-4 font-black font-black font-black font-black font-black">zhii_i</div>
                 </a>
 
-                <a href="https://www.instagram.com/tingggzhi?igsh=MWlhbjE3ZjJiOHUzcg%3D%3D&utm_source=qr" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black font-black">
-                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-pink-500 transition-colors mb-6 shadow-sm font-black font-black font-black font-black font-black font-black font-black">
-                        <i data-lucide="instagram" class="w-10 h-10 font-black font-black font-black font-black font-black font-black font-black font-black"></i>
+                <a href="https://www.instagram.com/tingggzhi?igsh=MWlhbjE3ZjJiOHUzcg%3D%3D&utm_source=qr" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black">
+                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-pink-500 transition-colors mb-6 shadow-sm font-black font-black font-black">
+                        <i data-lucide="instagram" class="w-10 h-10 font-black font-black"></i>
                     </div>
-                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black font-black font-black">Instagram</div>
-                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-pink-50 decoration-4 font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">tingggzhi</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black font-black">Instagram</div>
+                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-pink-50 decoration-4 font-black font-black font-black font-black font-black">tingggzhi</div>
                 </a>
 
-                <a href="https://line.me/ti/p/B4KyA0m3Mr" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black font-black">
-                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-green-500 transition-colors mb-6 shadow-sm font-black font-black font-black font-black font-black font-black font-black font-black">
-                        <i data-lucide="message-circle" class="w-10 h-10 font-black font-black font-black font-black font-black font-black font-black font-black"></i>
+                <a href="https://line.me/ti/p/B4KyA0m3Mr" target="_blank" class="flex flex-col items-center p-12 bg-white border-2 border-slate-100 hover:border-blue-500 hover:shadow-2xl transition-all group relative overflow-hidden font-black font-black font-black">
+                    <div class="p-4 bg-slate-50 text-slate-300 group-hover:bg-blue-50 group-hover:text-green-500 transition-colors mb-6 shadow-sm font-black font-black font-black">
+                        <i data-lucide="message-circle" class="w-10 h-10 font-black font-black"></i>
                     </div>
-                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black font-black font-black font-black">LINE ID</div>
-                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-green-50 decoration-4 font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">best_smile0329</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-2 font-black font-black font-black font-black font-black font-black font-black">LINE ID</div>
+                    <div class="text-2xl text-slate-800 tracking-tighter italic uppercase underline decoration-green-50 decoration-4 font-black font-black font-black font-black font-black font-black">best_smile0329</div>
                 </a>
             </div>
 
-            <div class="mt-20 font-black uppercase font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">
-                <button onclick="copyCurrentUrl()" class="px-10 py-5 bg-slate-900 text-white rounded hover:bg-blue-600 transition-all active:scale-95 flex items-center gap-3 mx-auto font-black uppercase shadow-[6px_6px_0px_0px_#DBEAFE] tracking-widest text-sm font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">
-                    <i data-lucide="copy" class="w-5 h-5 font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black"></i> 複製本站網址分享給客戶
+            <div class="mt-20 font-black uppercase font-black font-black font-black font-black">
+                <button onclick="copyCurrentUrl()" class="px-10 py-5 bg-slate-900 text-white rounded hover:bg-blue-600 transition-all active:scale-95 flex items-center gap-3 mx-auto font-black uppercase shadow-[6px_6px_0px_0px_#DBEAFE] tracking-widest text-sm font-black font-black font-black font-black">
+                    <i data-lucide="copy" class="w-5 h-5 font-black font-black"></i> 複製本站網址分享給客戶
                 </button>
             </div>
         </section>
     </main>
 
-    <footer class="py-24 text-center text-slate-300 border-t border-slate-100 bg-white font-black font-black font-black font-black font-black font-black font-black font-black font-black">
-        <div class="text-xs tracking-[0.6em] mb-6 uppercase italic font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">Zhi Zhi Studio ‧ Pixel Excellence 🥛✨</div>
-        <div class="text-[10px] uppercase tracking-widest font-black opacity-50 font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black font-black">© 2024 Zhi Zhi Customization. All Rights Reserved.</div>
+    <footer class="py-24 text-center text-slate-300 border-t border-slate-100 bg-white font-black font-black font-black">
+        <div class="text-xs tracking-[0.6em] mb-6 uppercase italic font-black font-black font-black">Zhi Zhi Studio ‧ Pixel Excellence 🥛✨</div>
+        <div class="text-[10px] uppercase tracking-widest font-black opacity-50 font-black font-black font-black">© 2024 Zhi Zhi Customization. All Rights Reserved.</div>
     </footer>
 
     <script>
